@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  pdf-analyzer:
+    build: .
+    container_name: adobe-pdf-analyzer
+    ports:
+      - "8000:8000"  # FastAPI port
+    volumes:
+      # Mount data directory for input PDFs
+      - ./data:/app/data
+      # Mount output directory for results
+      - ./output:/app/output
+      # Mount logs directory
+      - ./logs:/app/logs
+      # Mount collections for processing
+      - ./Collection 1:/app/Collection 1
+      # Mount models for offline access
+      - ./models:/app/models
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+      - TRANSFORMERS_CACHE=/app/models
+      - HF_HOME=/app/models
+      - TORCH_HOME=/app/models
+      - OMP_NUM_THREADS=8
+      - MKL_NUM_THREADS=8
+      - NUMEXPR_NUM_THREADS=8
+    command: ["python", "generate_solution.py"]
+    restart: unless-stopped
+    # Resource limits for challenge constraints
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '8.0'
+        reservations:
+          memory: 2G
+          cpus: '4.0'
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Redis for caching (if needed)
+  redis:
+    image: redis:7-alpine
+    container_name: adobe-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    profiles:
+      - cache
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+
+volumes:
+  redis_data: 

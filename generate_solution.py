@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Challenge 1b Solution Generator
-Generates solutions in the exact format expected by the challenge
+
 """
 import json
 import sys

@@ -1,94 +1,124 @@
-# Challenge 1b PDF Analysis Application
+# Adobe Challenge 1B - Enhanced Multi-Collection PDF Analysis
 
-A production-ready PDF analysis application that generates solutions in the exact format expected by the Adobe India Hackathon Challenge.
+## 🎯 **Challenge Overview**
 
-## 🚀 Quick Start
+**Challenge 1B: Multi-Collection PDF Analysis** - Advanced PDF analysis solution that processes multiple document collections and extracts relevant content based on specific personas and use cases.
 
-### Prerequisites
-- Python 3.8+
-- PyPDF2
+**: Recipe Collection (round_1b_001) - Food Contractor persona
 
-### Installation
+## 🚀 **Quick Start**
+
+### **Prerequisites**
+- Docker
+- Docker Compose (optional)
+- At least 4GB RAM available
+
+### **1. Clone and Navigate**
 ```bash
-pip install -r requirements.txt
+cd "Adobe 1B"
 ```
 
-### Usage
+### **2. Build the Enhanced Docker Image**
 ```bash
-# Generate solution for all collections
-python generate_solution.py
-
-# Or run the main application
-python -m src.main
+# Build with superior models
+docker build -t adobe-pdf-analyzer .
 ```
 
-## 📁 Project Structure
-
-```
-Challenge_1b/
-├── generate_solution.py      # Main solution generator
-├── requirements.txt          # Python dependencies
-├── README.md                # This file
-├── Collection 1/            # Adobe Hackathon Challenge
-│   ├── challenge1b_input.json
-│   ├── challenge1b_output.json
-│   └── PDFs/
-│       └── 6874faecd848a_Adobe_India_Hackathon_-_Challenge_Doc.pdf
-├── src/                     # Core application code
-│   ├── main.py             # CLI interface
-│   ├── core/               # PDF processing engine
-│   ├── models/             # ML models and embeddings
-│   ├── utils/              # Utility functions
-│   └── api/                # FastAPI web interface
-└── config/                 # Configuration files
+### **3. Run Multi-Collection Analysis**
+```bash
+# Process all collections automatically
+docker run --rm -it \
+  -v "$(pwd)/Collection 1:/app/Collection 1" \
+  -v "$(pwd)/Collection 2:/app/Collection 2" \
+  -v "$(pwd)/Collection 3:/app/Collection 3" \
+  adobe-pdf-analyzer
 ```
 
-## 🎯 Features
+## 📁 **Project Structure**
 
-- **PDF Text Extraction**: Multi-engine PDF processing
-- **Section Analysis**: Intelligent content segmentation
-- **Persona-Based Scoring**: Relevance ranking for specific roles
-- **Challenge 1b Format**: Exact JSON output structure
-- **Docker Ready**: Containerized deployment
-- **Performance Optimized**: Fast processing with caching
-
-## 📊 Output Format
-
-The application generates solutions in the exact Challenge 1b format:
-
-```json
-{
-  "metadata": {
-    "input_documents": ["document.pdf"],
-    "persona": "User Role",
-    "job_to_be_done": "Task description"
-  },
-  "extracted_sections": [
-    {
-      "document": "document.pdf",
-      "section_title": "Section Title",
-      "importance_rank": 1,
-      "page_number": 1
-    }
-  ],
-  "subsection_analysis": [
-    {
-      "document": "document.pdf",
-      "refined_text": "Processed content",
-      "page_number": 1
-    }
-  ]
-}
+```
+Adobe 1B/
+├── 🎯 enhanced_solution.py         # Enhanced solution with superior models
+├── 🆕 process_collections.py       # Multi-collection processor
+├── 🐳 Dockerfile                   # Optimized Docker configuration
+├── ⚡ requirements-optimized.txt   # Superior model dependencies
+├── ⚡ optimize_models.py           # Superior model optimization
+├── 📊 performance_monitor.py       # Performance monitoring
+├── 🔄 generate_solution.py         # Original solution (backup)
+├── docker-compose.yml           # Multi-service setup
+├── 🚫 .dockerignore                # Build optimization
+├── 🐧 docker-run.sh               # Linux/Mac management
+├── 🪟 docker-run.ps1              # Windows management
+├── 📚 DOCKER_README.md            # Comprehensive documentation
+├── 🧪 test_enhanced_solution.py    # Comprehensive testing
+├── ✅ verify_setup.py              # Setup verification
+├── 📖 README.md                    # This documentation
+└── ✅ FINAL_CHECKLIST.md           # Final verification checklist
 ```
 
-## 🔧 Technical Requirements
 
-- **Architecture**: AMD64 (CPU-only)
-- **Model Size**: ≤ 200MB
-- **Processing Time**: ≤ 60 seconds for document collections
-- **Network**: Offline processing (no internet required)
-- **Memory**: Optimized for 8 CPUs and 16GB RAM
+## 🚀 **How to Run**
 
-## 📝 License
+### **Method 1: Docker (Recommended)**
 
-This project is part of the Adobe India Hackathon Challenge. 
+#### **Build the Image**
+```bash
+# Build with superior models
+docker build -t adobe-pdf-analyzer .
+```
+
+#### **Run Multi-Collection Analysis**
+```bash
+# Process all collections 
+docker run --rm -it \
+  -v "$(pwd)/Collection 1:/app/Collection 1" \
+  -v "$(pwd)/Collection 2:/app/Collection 2" \
+  -v "$(pwd)/Collection 3:/app/Collection 3" \
+  adobe-pdf-analyzer
+```
+
+#### **Run Single Collection**
+```bash
+# Process specific collection
+docker run --rm -it \
+  -v "$(pwd)/Collection 1:/app/Collection 1" \
+  adobe-pdf-analyzer python enhanced_solution.py
+```
+
+### **Method 2: Docker Compose**
+
+#### **Run with Docker Compose**
+```bash
+# Start all services
+docker-compose up --build
+
+# Run with Redis caching (optional)
+docker-compose --profile cache up --build
+```
+
+### **Method 3: Direct Python (Development)**
+
+#### **Install Dependencies**
+```bash
+# Install superior models
+pip install -r requirements-optimized.txt
+
+# Download spaCy model
+python -m spacy download en_core_web_sm
+```
+
+#### **Run Enhanced Solution**
+```bash
+# Process all collections
+python process_collections.py
+
+# Process single collection
+python enhanced_solution.py
+
+# Run tests
+python test_enhanced_solution.py
+
+# Verify setup
+python verify_setup.py
+```
+

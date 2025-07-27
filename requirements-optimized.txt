@@ -1,0 +1,50 @@
+# Core PDF Processing (Lightweight)
+PyPDF2==3.0.1
+pdfplumber==0.10.3
+pymupdf==1.23.8
+
+# OCR and Document Understanding (Minimal)
+pytesseract==0.3.10
+Pillow==10.1.0
+
+# Machine Learning & NLP (Superior models under 1GB)
+transformers==4.35.2
+torch==2.1.1+cpu
+sentence-transformers==2.2.2
+spacy==3.7.2
+nltk==3.8.1
+scikit-learn==1.3.2
+
+# Vector Search & Similarity (CPU optimized)
+faiss-cpu==1.7.4
+numpy==1.24.3
+scipy==1.11.4
+
+# Text Processing (Essential only)
+python-docx==1.1.0
+openpyxl==3.1.2
+
+# Async Processing (Built-in)
+aiofiles==23.2.1
+
+# API & Web Framework (Minimal)
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+
+# Data Processing (Essential)
+pandas==2.1.4
+python-multipart==0.0.6
+
+# Caching & Performance (Lightweight)
+cachetools==5.3.2
+joblib==1.3.2
+
+# Performance Monitoring
+psutil==5.9.6
+
+# Utilities (Essential)
+tqdm==4.66.1
+click==8.1.7
+python-dotenv==1.0.0
+loguru==0.7.2 
